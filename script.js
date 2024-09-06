@@ -118,24 +118,26 @@ nextButton.addEventListener('click', () => {
     }
 });
 
-// function resetGame() {
-//     currentQuestionIndex = 0;
-//     score = 0;
-//     scoreDisplay.innerText = `Score: ${score}`;
-//     nextButton.innerText = "Play Again";
-//     nextButton.style.display = 'block';
-//     nextButton.addEventListener('click', () => {
-//         loadQuestion();
-//         nextButton.style.display = 'none';
-//     });
-// }
+// Added game reset and replay feature 🔄
 
-// document.addEventListener('keydown', (event) => {
-//     var key = event.key;
-//     if (key >= 1 && key <= 4) {
-//         var selectedIndex = key - 1;
-//         handleAnswer(selectedIndex);
-//     }
-// });
+function resetGame() {
+    currentQuestionIndex = 0;
+    score = 0;
+    scoreDisplay.innerText = `Score: ${score}`;
+    nextButton.innerText = "Play Again";
+    nextButton.style.display = 'block';
+    nextButton.addEventListener('click', () => {
+        loadQuestion();
+        nextButton.style.display = 'none';
+    });
+}
 
-// loadQuestion();
+document.addEventListener('keydown', (event) => {
+    var key = event.key;
+    if (key >= 1 && key <= 4) {
+        var selectedIndex = key - 1;
+        handleAnswer(selectedIndex);
+    }
+});
+
+loadQuestion();
